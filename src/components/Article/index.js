@@ -47,7 +47,8 @@ class Article extends React.Component {
             <h1>{this.props.article.title}</h1>
             <ArticleMeta
               article={this.props.article}
-              canModify={canModify} />
+              canModify={canModify}
+              currentUser={this.props.currentUser} />
 
           </div>
         </div>

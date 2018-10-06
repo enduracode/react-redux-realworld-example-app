@@ -23,7 +23,10 @@ const requests = {
   put: (url, body) =>
     superagent.put(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
   post: (url, body) =>
-    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody)
+    superagent.post(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody),
+  patch: (url, body) =>
+    superagent.patch(`${API_ROOT}${url}`, body).use(tokenPlugin).then(responseBody)
+
 };
 
 const Auth = {
@@ -65,7 +68,9 @@ const Articles = {
   update: article =>
     requests.put(`/articles/${article.slug}`, { article: omitSlug(article) }),
   create: article =>
-    requests.post('/articles', { article })
+    requests.post('/articles', { article }),
+  spam: slug =>
+    requests.patch(`/articles/${slug}`)
 };
 
 const Comments = {

@@ -2,7 +2,8 @@ import {
   ARTICLE_PAGE_LOADED,
   ARTICLE_PAGE_UNLOADED,
   ADD_COMMENT,
-  DELETE_COMMENT
+  DELETE_COMMENT,
+  SPAM_ARTICLE
 } from '../constants/actionTypes';
 
 export default (state = {}, action) => {
@@ -28,6 +29,11 @@ export default (state = {}, action) => {
       return {
         ...state,
         comments: state.comments.filter(comment => comment.id !== commentId)
+      };
+    case SPAM_ARTICLE:
+      return {
+        ...state,
+        article: { ...state.article, isSpam: true }
       };
     default:
       return state;

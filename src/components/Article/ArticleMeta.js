@@ -19,7 +19,7 @@ const ArticleMeta = props => {
         </span>
       </div>
 
-      <ArticleActions canModify={props.canModify} article={article} />
+      <ArticleActions canModify={props.canModify} article={article} currentUser={props.currentUser} />
     </div>
   );
 };
